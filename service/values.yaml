@@ -1,0 +1,14 @@
+deployment:
+  api:
+    port: 8000
+    target: 5000
+    image: elijah668/api
+    version: 1.0.0
+    name: api
+  client:
+    port: 80
+    image: elijah668/client
+    version: 1.0.0
+    name: client
+    path: localhost
+    theme: dark

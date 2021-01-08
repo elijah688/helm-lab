@@ -1,0 +1,13 @@
+apiVersion: v1
+data:
+  API_PATH: {{ .Values.deployment.api.name }}
+  API_PORT: "{{ .Values.deployment.api.port }}"
+  {{- if .Values.deployment.client.theme }}
+  THEME: {{ .Values.deployment.client.theme | quote }}
+  {{- else }}
+  THEME: "gold"
+  {{- end }}
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: config

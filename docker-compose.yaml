@@ -1,0 +1,13 @@
+version: "3.9" # optional since v1.27.0
+services:
+  util:
+    build:
+      context: .
+      dockerfile: util.dockerfile
+    volumes:
+      - ${HOME}/.kube:/root/.kube:ro
+      - ${PWD}/service:/service
+    stdin_open: true
+    tty: true
+    container_name: util
+    working_dir: service

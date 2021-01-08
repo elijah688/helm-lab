@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: {{ .Values.deployment.api.name }}
+  name: {{ .Values.deployment.api.name }}-service
+spec:
+  ports:
+  - name: {{ .Values.deployment.api.port }}-{{ .Values.deployment.api.port }}
+    port: {{ .Values.deployment.api.target }}
+    protocol: TCP
+    targetPort: {{ .Values.deployment.api.port }}
+  selector:
+    app: {{ .Values.deployment.api.name }}
+  type: LoadBalancer
+status:
+  loadBalancer: {}
